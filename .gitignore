@@ -105,3 +105,6 @@ dist
 
 # IntelliJ Folders
 .idea/
+
+# Package Lock
+450dsatracker/package-lock.json
