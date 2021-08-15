@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import isengard from "./utils/isengard";
+import createStore from "./utils/annatar";
 
 interface objectToStore{
   name?: string;
@@ -12,9 +13,6 @@ const test:objectToStore = {
   name: "test",
   info: "info"
 }
-
-
-
 
 function App() {
   return (

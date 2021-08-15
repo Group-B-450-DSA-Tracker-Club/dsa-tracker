@@ -7,7 +7,7 @@ interface objectToStore{
     name?: string;
     info?: string;
 }
-
+// Todo Refactor to have minimal calling to collection, have collection handlers, have db handlers, and have document handlers
 // Can all be made into promises, to error handle or become Async
 const isengard = {
     isengardDB: generateDB(),
