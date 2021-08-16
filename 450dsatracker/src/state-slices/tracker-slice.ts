@@ -19,26 +19,8 @@ export const trackerSlice = createSlice({
 
     reducers: {
         //reducer that initializes reducer state
-        initializeReducer: (state, action: PayloadAction<Array<IQuestionData>>) => {
-            console.log("We are in the reducer: ");
-            console.log(action.payload);
-            state.modules = action.payload;
-            // let tempPayload: Array<IQuestionData> = action.payload;
-            // let temp: Array<IQuestionData> = state.modules;
-            // tempPayload.forEach(async (module) => {
-            //     console.log("Inside for loop");
-            //     console.log(module);
-            //     await temp.push(module);
-            // });
-            // console.log("WE ARE HERE");
-            // console.log(temp);
-            //
-            //
-            // state.modules = temp;
-            // console.log("AND NOW WE ARE HERE");
-            //
-            // state.modules = action.payload;
-            // console.error(state.modules);
+            initializeReducer: (state, action: PayloadAction<IQuestionData[]>) => {
+                state.modules = action.payload;
         },
         //reducer that, when checked, sets the question's Done parameter to the opposite of its current parameter
         checkReducer: (state, action: PayloadAction<checkModel>) =>{

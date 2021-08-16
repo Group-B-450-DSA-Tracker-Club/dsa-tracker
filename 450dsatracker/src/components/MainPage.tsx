@@ -13,15 +13,23 @@ const MainPage = () =>{
 
     useEffect(()=>{
         console.log("Initializing Modules");
-        const initializeModules = () =>{
+
+        const initializeModules = async () =>{
             let nameArray = isengard.getCollectionNames();
-            let useEffectModules: Array<IQuestionData> = [];
-            nameArray.forEach(async (name) => {
-                let currCollection: IQuestionData = await isengard.getCollection(name);
-                console.log(currCollection);
-                useEffectModules.push(currCollection);
-            })
-            dispatch(initializeReducer(useEffectModules));
+            let modules: Array<IQuestionData> = [];
+            modules.length = nameArray.length;
+            for(let i =0; i < nameArray.length; i++){
+                let currCollection: IQuestionData = await isengard.getCollection(nameArray[i]);
+                modules[i] = currCollection;
+            }
+            // nameArray.forEach(async (name) => {
+            //     let currCollection: IQuestionData = await isengard.getCollection(name);
+            //     console.log("We have currcollection now");
+            //     console.log(currCollection);
+            //     modules.push(currCollection);
+            // });
+            dispatch(initializeReducer(modules));
+
         }
         initializeModules();
 
