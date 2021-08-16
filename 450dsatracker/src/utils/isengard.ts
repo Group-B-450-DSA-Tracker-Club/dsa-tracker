@@ -2,6 +2,7 @@
 import LocalBase from 'localbase'
 
 
+
 // Object to Store, will be imported from separate file here for simplicity
 interface objectToStore{
     name?: string;
