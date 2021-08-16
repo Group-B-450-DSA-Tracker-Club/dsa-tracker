@@ -15,7 +15,7 @@ const MainPage = () =>{
         console.log("Initializing Modules");
 
         const initializeModules = async () =>{
-            let nameArray = isengard.getCollectionNames();
+            let nameArray = await isengard.getCollectionNames();
             let modules: Array<IQuestionData> = [];
             modules.length = nameArray.length;
             for(let i =0; i < nameArray.length; i++){
