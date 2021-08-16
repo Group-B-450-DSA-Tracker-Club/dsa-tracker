@@ -2,6 +2,7 @@ import {createSlice, PayloadAction } from "@reduxjs/toolkit";
 import {RootState} from "../store/store";
 import {IQuestion, IQuestionData} from "../models/question-model";
 import isengard from "../utils/isengard";
+import {checkModel} from "../models/check-model";
 
 interface State {
     modules: Array<IQuestionData>;
@@ -23,17 +24,16 @@ export const trackerSlice = createSlice({
             })
         },
         //reducer that, when checked, sets the question's Done parameter to the opposite of its current parameter
-        checkReducer: (state, action: PayloadAction<IQuestionData>) =>{
+        checkReducer: (state, action: PayloadAction<checkModel>) =>{
             let index = 0;
             state.modules.forEach((module) =>{
                 if(module.topicName = action.payload.topicName){
-                    for(let i = 0; i < module.questions.length; i++){
-                        if(module.questions[i].Done != action.payload.questions[i].Done){
-                            state.modules[index].questions[i].Done = !state.modules[index].questions[i].Done;
-                        }
-                    }
-                    // @ts-ignore
-                    break;
+                    // for(let i = 0; i < module.questions.length; i++){
+                    //     if(module.questions[i].Done != action.payload.questions[i].Done){
+                    //         state.modules[index].questions[i].Done = !state.modules[index].questions[i].Done;
+                    //     }
+                    // }
+                    state.modules[index].questions[action.payload.index].Done = !state.modules[index].questions[action.payload.index].Done;
                 }
             index++;
             })
@@ -42,7 +42,7 @@ export const trackerSlice = createSlice({
     }
 })
 
-export const {} = trackerSlice.actions;
+export const {initializeReducer, checkReducer} = trackerSlice.actions;
 
 export const trackerState = (state: RootState) => state.tracker;
 
