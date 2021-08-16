@@ -1,8 +1,8 @@
 import {createSlice, PayloadAction } from "@reduxjs/toolkit";
 import {RootState} from "../store/store";
-import {IQuestion, IQuestionData} from "../models/question-model";
-import isengard from "../utils/isengard";
+import {IQuestionData} from "../models/question-model";
 import {checkModel} from "../models/check-model";
+
 
 interface State {
     modules: Array<IQuestionData>;
@@ -14,14 +14,31 @@ const initialState: State = {
 
 export const trackerSlice = createSlice({
     name: "tracker",
+
     initialState,
-    reducers:{
-        //reducer that fetches database data and stores the modules into the state array
-        initializeReducer: (state) =>{
-            let nameArray = isengard.getCollectionNames();
-            nameArray.forEach((name) => {
-                state.modules.push(isengard.getCollection(name));
-            })
+
+    reducers: {
+        //reducer that initializes reducer state
+        initializeReducer: (state, action: PayloadAction<Array<IQuestionData>>) => {
+            console.log("We are in the reducer: ");
+            console.log(action.payload);
+            state.modules = action.payload;
+            // let tempPayload: Array<IQuestionData> = action.payload;
+            // let temp: Array<IQuestionData> = state.modules;
+            // tempPayload.forEach(async (module) => {
+            //     console.log("Inside for loop");
+            //     console.log(module);
+            //     await temp.push(module);
+            // });
+            // console.log("WE ARE HERE");
+            // console.log(temp);
+            //
+            //
+            // state.modules = temp;
+            // console.log("AND NOW WE ARE HERE");
+            //
+            // state.modules = action.payload;
+            // console.error(state.modules);
         },
         //reducer that, when checked, sets the question's Done parameter to the opposite of its current parameter
         checkReducer: (state, action: PayloadAction<checkModel>) =>{
@@ -42,7 +59,7 @@ export const trackerSlice = createSlice({
     }
 })
 
-export const {initializeReducer, checkReducer} = trackerSlice.actions;
+export const { initializeReducer, checkReducer} = trackerSlice.actions;
 
 export const trackerState = (state: RootState) => state.tracker;
 

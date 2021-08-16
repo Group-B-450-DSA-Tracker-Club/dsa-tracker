@@ -3,6 +3,8 @@ import {useDispatch, useSelector} from "react-redux";
 import {useHistory} from "react-router-dom";
 import {useEffect} from "react";
 import {initializeReducer, checkReducer, trackerState} from "../state-slices/tracker-slice"
+import isengard from "../utils/isengard";
+import {IQuestionData} from "../models/question-model";
 
 const MainPage = () =>{
     const dispatch = useDispatch();
@@ -10,10 +12,22 @@ const MainPage = () =>{
     const modules = useSelector(trackerState);
 
     useEffect(()=>{
-        console.log("Initializing the Modules");
-        dispatch(initializeReducer());
+        console.log("Initializing Modules");
+        const initializeModules = () =>{
+            let nameArray = isengard.getCollectionNames();
+            let useEffectModules: Array<IQuestionData> = [];
+            nameArray.forEach(async (name) => {
+                let currCollection: IQuestionData = await isengard.getCollection(name);
+                console.log(currCollection);
+                useEffectModules.push(currCollection);
+            })
+            dispatch(initializeReducer(useEffectModules));
+        }
+        initializeModules();
 
     }, []);
+
+
 
     return (
         <Row>
@@ -25,7 +39,7 @@ const MainPage = () =>{
                             <Card.Body>
                                 <Card.Title>
                                     <Card.Subtitle>
-                                        {module.questions.length}
+                                        {module.questions}
                                     </Card.Subtitle>
                                 </Card.Title>
                             </Card.Body>
