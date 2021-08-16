@@ -3,20 +3,11 @@ import {RootState} from "../store/store";
 import {IQuestion, IQuestionData} from "../models/question-model";
 
 interface State {
-    topicName: string;
-    position: number;
-    doneQuestions: number;
-    questions: Array<IQuestion>;
-    percentage: number;
+    modules: Array<IQuestionData>;
 }
 
 const initialState: State = {
-    topicName: "",
-    position: 0,
-    // started: false,
-    doneQuestions: 0,
-    questions: [],
-    percentage: 0
+    modules: []
 }
 
 export const trackerSlice = createSlice({
@@ -25,15 +16,10 @@ export const trackerSlice = createSlice({
     reducers:{
         //reducer that fetches database data
         initializeReducer: (state, action: PayloadAction<IQuestionData>) =>{
-
         },
         //reducer that, when checked, sets the question's Done parameter to the opposite of its current parameter
         checkReducer: (state, action: PayloadAction<IQuestion>) =>{
 
-        },
-        //reducer that calculates the percentage of completion for the given set of questions
-        percentageCalculator: (state) =>{
-            state.percentage = 100* (state.doneQuestions / state.questions.length);
         }
 
     }

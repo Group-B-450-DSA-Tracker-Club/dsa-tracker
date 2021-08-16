@@ -8,7 +8,7 @@ export interface IQuestion {
 export interface IQuestionData {
     topicName: string;
     position: number;
-    // started: boolean;
+    started: boolean;
     doneQuestions: number;
     questions: IQuestion[];
 }
