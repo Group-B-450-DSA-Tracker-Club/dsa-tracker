@@ -1,23 +1,10 @@
-interface IQuestion {
-    Topic: string;
-    Problem: string;
-    Done: boolean;
-    URL: string;
-}
-
-interface IQuestionData {
-    topicName: string;
-    position: number;
-    started: boolean;
-    doneQuestions: number;
-    questions: IQuestion[];
-}
+import {IQuestion, IQuestionData} from "../models/question-model";
 
 
 export const questions: IQuestionData = {
     topicName: "Array",
     position: 0,
-    started: false,
+    // started: false,
     doneQuestions: 0,
     questions: [
         {
