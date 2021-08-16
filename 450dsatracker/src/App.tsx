@@ -2,17 +2,6 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import isengard from "./utils/isengard";
-import createStore from "./utils/annatar";
-
-interface objectToStore{
-  name?: string;
-  info?: string;
-}
-
-const test:objectToStore = {
-  name: "test",
-  info: "info"
-}
 
 function App() {
   return (
@@ -29,7 +18,7 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
-          {isengard.addDocument(test,'test','keyname')}
+          {console.log(isengard.getCollection('Array'))}
         </a>
       </header>
     </div>
