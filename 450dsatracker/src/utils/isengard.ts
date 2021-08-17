@@ -42,7 +42,7 @@ function generateDB(questionData:IQuestionData[]){
     var db = new LocalBase('db');
     db.config.debug = true;
     questionData.forEach(function(question){
-        console.log(question)
+        //console.log(question)
         db.collection(question.topicName).add(question,question.position)
     });
     return db;
