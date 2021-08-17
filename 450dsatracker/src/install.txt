@@ -1,0 +1,2 @@
+npm i node-sass
+sass --watch src/style.sass src/style.css

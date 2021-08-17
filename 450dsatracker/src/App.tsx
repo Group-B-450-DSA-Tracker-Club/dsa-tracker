@@ -1,27 +1,33 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import {Container, Row, Col} from "react-bootstrap";
 import isengard from "./utils/isengard";
+import MainPage from "./components/MainPage";
+import Module from "./components/Module";
+import {ModuloDisplay} from "./components/ModuloDisplay";
+import { Tracker } from './components/Tracker';
+import { QuestionDisplay } from './components/QuestionDisplay';
+
 
 function App() {
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-          {console.log(isengard.getCollection('Array'))}
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Container className="app-container" id="app-container">
+        <Switch>
+          <Route exact path ="/">
+            <MainPage/>
+          </Route>
+          <Route exact path="/module">
+            <Module />
+          </Route>
+        </Switch>
+
+      </Container>
+    </Router>
   );
 }
 

@@ -1,5 +1,4 @@
 import {configureStore} from "@reduxjs/toolkit";
-// @ts-ignore
 import trackerReducer from "../state-slices/tracker-slice";
 
 export const store = configureStore({
