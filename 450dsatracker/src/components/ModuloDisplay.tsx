@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import {IQuestionData} from "../models/question-model";
 import isengard from "../utils/isengard";
-import {Card, CardDeck, Col, Container, ListGroup, Row} from "react-bootstrap";
+import {Card, Col, Container, ListGroup, Row} from "react-bootstrap";
 import {useDispatch, useSelector} from "react-redux";
 import {initializeReducer, checkReducer, trackerState} from "../state-slices/tracker-slice"
 import { Tracker } from "./Tracker";
@@ -36,9 +36,7 @@ export const ModuloDisplay = () => {
     return (
         <>
             <Row>
-                <CardDeck>
                     {modules.modules.map((module) => <Tracker mod = {module} />)}
-                </CardDeck>
             </Row>
 
 
