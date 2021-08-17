@@ -12,7 +12,7 @@ export const QuestionDisplay = (props:any)=>{
 
     const handleChange = (e: any) =>{
         let checkModel: checkModel = {
-            topicName: e.target.name,
+            topicName: props.topicName,
             index: e.target.id
         }
         dispatcher(checkReducer(checkModel));

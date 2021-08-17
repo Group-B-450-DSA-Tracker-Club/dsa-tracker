@@ -39,7 +39,7 @@ export const Tracker = (props:any) => {
 
                     </Accordion.Header>
                     <Accordion.Body>
-                        <QuestionDisplay questions = {props.mod.questions}/>
+                        <QuestionDisplay topicName = {props.mod.topicName} questions = {props.mod.questions}/>
                     </Accordion.Body>
                 </Accordion.Item>
 
