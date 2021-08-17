@@ -26,11 +26,11 @@ export const Tracker = (props:any) => {
     return (
         <>
 
-            <Accordion>
+            <Accordion bsPrefix={'accordionModule'}>
 
                 <Accordion.Item eventKey="0">
-                    <Accordion.Header>
-                        <Col>
+                    <Accordion.Header className={'accordionHeader'}>
+                        <Col className={'moduleHeaderName'}>
                             {props.mod.topicName}
                         </Col>
                         <Col>
@@ -38,7 +38,7 @@ export const Tracker = (props:any) => {
                         </Col>
 
                     </Accordion.Header>
-                    <Accordion.Body>
+                    <Accordion.Body className={"moduleBody"}>
                         <QuestionDisplay topicName = {props.mod.topicName} questions = {props.mod.questions}/>
                     </Accordion.Body>
                 </Accordion.Item>

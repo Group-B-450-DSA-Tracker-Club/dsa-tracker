@@ -1,4 +1,4 @@
-import { Col, Form, Row } from "react-bootstrap"
+import {Col, Form, Row, Table} from "react-bootstrap"
 import { propTypes } from "react-bootstrap/esm/Image"
 import { useHistory } from "react-router-dom";
 import {IQuestion} from "../models/question-model";
@@ -22,13 +22,25 @@ export const QuestionDisplay = (props:any)=>{
         {props.questions.map((question: IQuestion, index: string) => { return(
             <Form>
                 <Row>
-                    <Col>
-                        <Form.Check id={""+index} name={question.Topic} type="checkbox" onChange={handleChange}/>
--
-                    </Col>
-                    <Col>
-                        <a href={question.URL}> {question.Problem} </a>
-                    </Col>
+                    <Table className={'module'} borderless={true}>
+                        <tbody>
+                            <tr>
+                                <td align={'left'}>
+                                    <Form.Check id={""+index} name={question.Topic} type="checkbox" onChange={handleChange}/>
+                                </td>
+                                <td align={'right'}>
+                                    <a href={question.URL}> {question.Problem} </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </Table>
+{/*                    <Col>*/}
+{/*                        <Form.Check id={""+index} name={question.Topic} type="checkbox" onChange={handleChange}/>*/}
+{/*-*/}
+{/*                    </Col>*/}
+{/*                    <Col>*/}
+{/*                        <a href={question.URL}> {question.Problem} </a>*/}
+{/*                    </Col>*/}
                 </Row>
             </Form>)})}
         </>

@@ -35,7 +35,7 @@ export const ModuloDisplay = () => {
     console.log("inside component", topicNames);
     return (
         <>
-            <Row>
+            <Row className={'moduleHeaders'}>
                     {modules.modules.map((module) => <Tracker mod = {module} />)}
             </Row>
 
