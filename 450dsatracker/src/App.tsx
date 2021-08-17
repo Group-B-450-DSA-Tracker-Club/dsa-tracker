@@ -7,13 +7,19 @@ import isengard from "./utils/isengard";
 import MainPage from "./components/MainPage";
 import Module from "./components/Module";
 
+import {ModuloDisplay} from "./component/ModuloDisplay";
+
+
 function App() {
+
+
   return (
     <Router>
       <Container className="app-container" id="app-container">
         <Switch>
           <Route exact path ="/">
-            <MainPage/>
+            {/*<MainPage/>*/}
+              <ModuloDisplay/>
           </Route>
           <Route exact path="/module">
             <Module/>
