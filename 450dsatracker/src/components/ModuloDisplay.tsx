@@ -4,6 +4,7 @@ import isengard from "../utils/isengard";
 import {Card, CardDeck, Col, Container, ListGroup, Row} from "react-bootstrap";
 import {useDispatch, useSelector} from "react-redux";
 import {initializeReducer, checkReducer, trackerState} from "../state-slices/tracker-slice"
+import { Tracker } from "./Tracker";
 
 export const ModuloDisplay = () => {
     const [topicNames, setTopicNames] = useState(undefined as unknown as string[] || undefined);
@@ -25,31 +26,18 @@ export const ModuloDisplay = () => {
         //setTopicArray(false);
         //setDetailArray(true);
     }
+
+    const loadCard = (e:Event) => {
+        
+        console.log("clicked!");
+    }
+
     console.log("inside component", topicNames);
-    console.log(modules);
     return (
         <>
             <Row>
                 <CardDeck>
-                    {modules.modules.map((module) => {
-                        return (
-                            <Card>
-                                {console.log(module)}
-                                <Card.Header>{module.topicName}</Card.Header>
-                                <Card.Body>
-                                    <Card.Title>
-                                        <Card.Subtitle>
-                                            {module.position}
-                                        </Card.Subtitle>
-                                    </Card.Title>
-                                    <Card.Body>
-                                        <Card.Text>Hello World</Card.Text>
-                                        <Card.Text>{module.topicName}</Card.Text>
-                                    </Card.Body>
-                                </Card.Body>
-                            </Card>
-                        )
-                    })}
+                    {modules.modules.map((module) => <Tracker mod = {module} />)}
                 </CardDeck>
             </Row>
 
