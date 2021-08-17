@@ -19,29 +19,35 @@ export const trackerSlice = createSlice({
 
     reducers: {
         //reducer that initializes reducer state
-            initializeReducer: (state, action: PayloadAction<IQuestionData[]>) => {
-                state.modules = action.payload;
+        initializeReducer: (state, action: PayloadAction<IQuestionData[]>) => {
+            state.modules = action.payload;
         },
         //reducer that, when checked, sets the question's Done parameter to the opposite of its current parameter
         checkReducer: (state, action: PayloadAction<checkModel>) =>{
             let index = 0;
             state.modules.forEach((module) =>{
-                if(module.topicName = action.payload.topicName){
-                    // for(let i = 0; i < module.questions.length; i++){
-                    //     if(module.questions[i].Done != action.payload.questions[i].Done){
-                    //         state.modules[index].questions[i].Done = !state.modules[index].questions[i].Done;
-                    //     }
-                    // }
-                    state.modules[index].questions[action.payload.index].Done = !state.modules[index].questions[action.payload.index].Done;
+                if(module.topicName == action.payload.topicName){
+                    let currentBool = !state.modules[index].questions[action.payload.index].Done;
+                    state.modules[index].questions[action.payload.index].Done = currentBool;
+                    if(currentBool){
+                        state.modules[index].doneQuestions++;
+                    }
+                    else{
+                        state.modules[index].doneQuestions--;
+                    }
+
                 }
             index++;
             })
+
         }
+
+
 
     }
 })
 
-export const { initializeReducer, checkReducer} = trackerSlice.actions;
+export const { initializeReducer, checkReducer } = trackerSlice.actions;
 
 export const trackerState = (state: RootState) => state.tracker;
 

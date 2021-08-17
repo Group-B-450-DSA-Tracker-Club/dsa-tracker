@@ -16,7 +16,11 @@ export const Tracker = (props:any) => {
 
     }
 
-    console.log("tracker module loaded");
+    const truncate = (num: number) =>{
+        return Math.trunc(num);
+    }
+
+     console.log("tracker module loaded");
     console.log(props.mod);
 
     return (
@@ -30,7 +34,7 @@ export const Tracker = (props:any) => {
                             {props.mod.topicName}
                         </Col>
                         <Col>
-                            <ProgressBar animated now={60} label={`${60}%`}/>
+                            <ProgressBar animated now={truncate(100*props.mod.doneQuestions/props.mod.questions.length)} label={`${truncate(100*props.mod.doneQuestions/props.mod.questions.length)}%`}/>
                         </Col>
 
                     </Accordion.Header>
