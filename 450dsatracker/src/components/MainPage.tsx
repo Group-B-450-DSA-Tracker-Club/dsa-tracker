@@ -20,7 +20,9 @@ const MainPage = () =>{
             let modules: Array<IQuestionData> = [];
             modules.length = nameArray.length;
             for(let i =0; i < nameArray.length; i++){
-                let currCollection: IQuestionData = await isengard.getCollection(nameArray[i]);
+                let arr = await isengard.getCollection(nameArray[i])
+                let currCollection: IQuestionData = arr[0];
+                console.log(currCollection);
                 modules[i] = currCollection;
             }
             // nameArray.forEach(async (name) => {

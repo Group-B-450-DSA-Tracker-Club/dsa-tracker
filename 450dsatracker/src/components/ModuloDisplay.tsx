@@ -34,7 +34,7 @@ export const ModuloDisplay = () => {
                     {modules.modules.map((module) => {
                         return (
                             <Card>
-                                {console.log(module[0])}
+                                {console.log(module)}
                                 <Card.Header>{module.topicName}</Card.Header>
                                 <Card.Body>
                                     <Card.Title>
