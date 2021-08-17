@@ -18,8 +18,8 @@ function App() {
       <Container className="app-container" id="app-container">
         <Switch>
           <Route exact path ="/">
-            {/*<MainPage/>*/}
-              <ModuloDisplay/>
+            <MainPage/>
+              {/*<ModuloDisplay/>*/}
           </Route>
           <Route exact path="/module">
             <Module/>

@@ -19,7 +19,8 @@ const MainPage = () =>{
             let modules: Array<IQuestionData> = [];
             modules.length = nameArray.length;
             for(let i =0; i < nameArray.length; i++){
-                let currCollection: IQuestionData = await isengard.getCollection(nameArray[i]);
+                let arr = await isengard.getCollection(nameArray[i]);
+                let currCollection: IQuestionData = arr[0];
                 modules[i] = currCollection;
             }
             // nameArray.forEach(async (name) => {
@@ -33,6 +34,8 @@ const MainPage = () =>{
         }
         initializeModules();
 
+        console.log(modules);
+
     }, []);
 
 
@@ -42,16 +45,22 @@ const MainPage = () =>{
             <CardDeck>
                 {modules.modules.map((module) =>{
                     return (
-                        <Card>
-                            <Card.Header>{module.topicName}</Card.Header>
-                            <Card.Body>
-                                <Card.Title>
-                                    <Card.Subtitle>
-                                        {module.questions}
-                                    </Card.Subtitle>
-                                </Card.Title>
-                            </Card.Body>
-                        </Card>
+                        <Col xs={8} md={6} lg={4} style={{ padding: '1rem' }}>
+                            <Card>
+                                <Card.Header>{module.topicName}</Card.Header>
+                                <Card.Body>
+                                    <Card.Title>
+                                        <Card.Subtitle>
+                                            {module.position}
+                                        </Card.Subtitle>
+                                    </Card.Title>
+                                    <Card.Body>
+                                        <Card.Text>Hello World!</Card.Text>
+                                        <Card.Text>{module.topicName}</Card.Text>
+                                    </Card.Body>
+                                </Card.Body>
+                            </Card>
+                        </Col>
                     )
                 })}
             </CardDeck>
