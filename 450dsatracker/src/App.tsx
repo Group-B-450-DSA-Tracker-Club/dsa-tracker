@@ -7,6 +7,8 @@ import isengard from "./utils/isengard";
 import MainPage from "./components/MainPage";
 import Module from "./components/Module";
 import {ModuloDisplay} from "./components/ModuloDisplay";
+import { Tracker } from './components/Tracker';
+import { QuestionDisplay } from './components/QuestionDisplay';
 
 
 function App() {
@@ -21,7 +23,7 @@ function App() {
               {/* <ModuloDisplay/> */}
           </Route>
           <Route exact path="/module">
-            <Module/>
+            <Module />
           </Route>
         </Switch>
 
