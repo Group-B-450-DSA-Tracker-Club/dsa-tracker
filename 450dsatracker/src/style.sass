@@ -1,5 +1,51 @@
 $font-stack: Helvetica,sans-serif
-$primary-color: #333
+$p-color: #222831
+$s-color: #393E46
+$t-color: #FFD369
+$f-color: #EEEEEE
+
+a
+  color: white
+
+body
+  background-color: $p-color
+
+.accordion
+  background-color: $p-color
+  font-size: 1rem
+
+.accordion-item
+  background-color: $s-color
+
+.accordion-header
+  background-color: $s-color
+.accordion-body
+  color: $s-color
+
+//.accordion-col
+//  background-color: #282c34
+//  color: black
+
+
+.accordion-button
+  background-color: $t-color
+  color: white
+
+.accordion-button
+  background-color: #282c34
+
+.accordion-button .collapsed
+  background-color: #282c34
+
+.pgs-bar
+  background-color: $s-color
+
+.form-check-input
+  border-color: $s-color
+
+.form-check-input:checked
+  border-color: $s-color
+  background-color: $t-color
 
 @mixin theme($theme: Gray)
   background: $theme

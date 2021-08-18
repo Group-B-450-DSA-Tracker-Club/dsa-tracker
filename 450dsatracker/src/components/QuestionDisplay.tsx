@@ -1,4 +1,4 @@
-import { Col, Form, Row } from "react-bootstrap"
+import {Col, Form, Row, Table} from "react-bootstrap"
 import { propTypes } from "react-bootstrap/esm/Image"
 import { useHistory } from "react-router-dom";
 import {IQuestion} from "../models/question-model";
@@ -19,18 +19,37 @@ export const QuestionDisplay = (props:any)=>{
     }
     return (
         <>
-        {props.questions.map((question: IQuestion, index: string) => { return(
-            <Form>
-                <Row>
-                    <Col>
-                        <Form.Check id={""+index} name={question.Topic} type="checkbox" onChange={handleChange}/>
--
-                    </Col>
-                    <Col>
-                        <a href={question.URL}> {question.Problem} </a>
-                    </Col>
-                </Row>
-            </Form>)})}
+                {props.questions.map((question: IQuestion, index: string) => { return(
+                    <Form>
+                        <Row>
+                            <Col>
+                                <Form.Check id={""+index} name={question.Topic} type="checkbox" onChange={handleChange}/>
+                                -
+                            </Col>
+                            <Col>
+                                <a href={question.URL}> {question.Problem} </a>
+                            </Col>
+                        </Row>
+                    </Form>
+                )})}
+
         </>
+        // <>
+        //     {props.questions.map((question: IQuestion, index: string) => { return(
+        //         <tr>
+        //             <Form>
+        //                 <Row>
+        //                     <Col>
+        //                         <Form.Check id={""+index} name={question.Topic} type="checkbox" onChange={handleChange}/>
+        //                         -
+        //                     </Col>
+        //                     <Col>
+        //                         <a href={question.URL}> {question.Problem} </a>
+        //                     </Col>
+        //                 </Row>
+        //             </Form>
+        //         </tr>
+        //     )})}
+        // </>
     )
 }

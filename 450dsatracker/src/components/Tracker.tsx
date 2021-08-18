@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {Accordion, Card, Col, ProgressBar} from "react-bootstrap"
+import {Accordion, Card, Col, ProgressBar, Table} from "react-bootstrap"
 import { useHistory } from "react-router-dom";
 import { QuestionDisplay } from "./QuestionDisplay";
 
@@ -26,19 +26,18 @@ export const Tracker = (props:any) => {
     return (
         <>
 
-            <Accordion>
+            <Accordion className={"accordion"}>
 
-                <Accordion.Item eventKey="0">
-                    <Accordion.Header>
-                        <Col>
-                            {props.mod.topicName}
-                        </Col>
-                        <Col>
-                            <ProgressBar animated now={truncate(100*props.mod.doneQuestions/props.mod.questions.length)} label={`${truncate(100*props.mod.doneQuestions/props.mod.questions.length)}%`}/>
-                        </Col>
-
+                <Accordion.Item eventKey="0" className={"accordion-item"}>
+                    <Accordion.Header className={"accordion-header"}>
+                            <Col className={"accordion-col"}>
+                                {props.mod.topicName}
+                            </Col>
+                            <Col className={"accordion-col"}>
+                                <ProgressBar className={"pgs-bar"} variant="info" animated now={truncate(100*props.mod.doneQuestions/props.mod.questions.length)} label={`${truncate(100*props.mod.doneQuestions/props.mod.questions.length)}%`}/>
+                            </Col>
                     </Accordion.Header>
-                    <Accordion.Body>
+                    <Accordion.Body className={"accordion-body"}>
                         <QuestionDisplay topicName = {props.mod.topicName} questions = {props.mod.questions}/>
                     </Accordion.Body>
                 </Accordion.Item>
