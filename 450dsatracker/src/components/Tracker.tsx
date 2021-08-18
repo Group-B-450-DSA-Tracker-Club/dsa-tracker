@@ -31,11 +31,18 @@ export const Tracker = (props:any) => {
                 <Accordion.Item eventKey="0" style={{backgroundColor: "black"}}>
                     <Accordion.Header className={'accordionHeader'} >
                         <Col className={'moduleHeaderName'} >
-                            {props.mod.topicName}
+                            <strong> {props.mod.topicName} </strong>
                         </Col>
-                        <Col>
+                        <Col xs="1" className="started-column" style={{borderRadius: 10, backgroundColor: props.mod.started ? "lightgreen" : "pink"}}>
+                            {props.mod.started ? "Started" : "Not Started"}
+                        </Col>
+                        <Col xs="2" className="col-problems">
+                            <span className="col-span-problems">{props.mod.doneQuestions + "/" + props.mod.questions.length + " Problems Completed"} </span>
+                        </Col>
+                        <Col xs="5" className="progress-bar-column">
                             <ProgressBar animated now={truncate(100*props.mod.doneQuestions/props.mod.questions.length)} label={`${truncate(100*props.mod.doneQuestions/props.mod.questions.length)}%`} />
                         </Col>
+
 
                     </Accordion.Header>
                     <Accordion.Body className={"moduleBody"} >

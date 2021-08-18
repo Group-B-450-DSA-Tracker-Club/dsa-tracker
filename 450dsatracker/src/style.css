@@ -37,4 +37,36 @@ body {
   color: #111;
 }
 
+.d-inline-block {
+  margin-right: 5%;
+  margin-bottom: 6%;
+  margin-left: 5%;
+}
+
+.title-name {
+  font-size: 5rem;
+}
+
+.started-column {
+  text-align: center;
+  margin-right: 3rem;
+}
+
+.progress-bar-column {
+  margin-right: 3rem;
+}
+
+.col-problems {
+  background-color: #d2ccd2;
+  padding: 2px;
+  border-radius: 5rem;
+  margin-right: 20px;
+  align-text: center;
+}
+
+.col-span-problems {
+  padding: 8px;
+  color: black;
+}
+
 /*# sourceMappingURL=style.css.map */

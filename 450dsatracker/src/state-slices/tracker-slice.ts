@@ -36,12 +36,18 @@ export const trackerSlice = createSlice({
                         state.modules[index].doneQuestions--;
                     }
 
+                    if(state.modules[index].doneQuestions > 0){
+                        state.modules[index].started = true;
+                    }
+                    else{
+                        state.modules[index].started = false;
+                    }
+
                 }
             index++;
             })
 
         }
-
 
 
     }

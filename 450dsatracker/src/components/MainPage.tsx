@@ -6,6 +6,7 @@ import {initializeReducer, checkReducer, trackerState} from "../state-slices/tra
 import isengard from "../utils/isengard";
 import {IQuestionData} from "../models/question-model";
 import {ModuloDisplay} from "../components/ModuloDisplay";
+import NavigationBar from "./NavigationBar";
 
 const MainPage = () =>{
     const dispatch = useDispatch();
@@ -41,6 +42,7 @@ const MainPage = () =>{
 
     return (
         <>
+            <NavigationBar/>
             <ModuloDisplay />
         </>
     );
