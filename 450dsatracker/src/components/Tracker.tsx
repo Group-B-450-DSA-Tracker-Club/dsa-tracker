@@ -20,6 +20,11 @@ export const Tracker = (props:any) => {
         return Math.trunc(num);
     }
 
+    const successVariant = (num:number) =>{
+        const variantNumber = truncate(num);
+        return variantNumber>=70? "success": variantNumber>=45? "warning": "danger"
+    }
+
     console.log("tracker module loaded");
     console.log(props.mod);
 
@@ -40,7 +45,9 @@ export const Tracker = (props:any) => {
                             <span className="col-span-problems">{props.mod.doneQuestions + "/" + props.mod.questions.length + " Problems Completed"} </span>
                         </Col>
                         <Col xs="5" className="progress-bar-column">
-                            <ProgressBar animated now={truncate(100*props.mod.doneQuestions/props.mod.questions.length)} label={`${truncate(100*props.mod.doneQuestions/props.mod.questions.length)}%`} />
+                            <ProgressBar>
+                                <ProgressBar animated variant={successVariant(100*props.mod.doneQuestions/props.mod.questions.length)} now={truncate(100*props.mod.doneQuestions/props.mod.questions.length)} label={`${truncate(100*props.mod.doneQuestions/props.mod.questions.length)}%`} />
+                            </ProgressBar>
                         </Col>
                     </Accordion.Header>
                     <Accordion.Body className={"moduleBody"} >
