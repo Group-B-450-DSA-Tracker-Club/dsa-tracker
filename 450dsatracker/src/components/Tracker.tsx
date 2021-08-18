@@ -36,7 +36,7 @@ export const Tracker = (props:any) => {
                         <Col xs="1" className="started-column" style={{borderRadius: 10, backgroundColor: props.mod.started ? "lightgreen" : "pink"}}>
                             {props.mod.started ? "Started" : "Not Started"}
                         </Col>
-                        <Col xs="2" className="col-problems">
+                        <Col xs="2" sm="3" className="col-problems">
                             <span className="col-span-problems">{props.mod.doneQuestions + "/" + props.mod.questions.length + " Problems Completed"} </span>
                         </Col>
                         <Col xs="5" className="progress-bar-column">
