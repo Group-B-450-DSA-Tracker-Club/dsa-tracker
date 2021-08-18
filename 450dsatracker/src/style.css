@@ -19,15 +19,21 @@ body {
 }
 
 .module {
-  background: #222831;
-  box-shadow: 0 0 1px rgba(34, 40, 49, 0.25);
+  background: #EEEEEE;
+  box-shadow: 0 0 1px rgba(238, 238, 238, 0.25);
   color: #111;
   text-align: center;
 }
 
 .moduleBody {
-  background: #393E46;
-  box-shadow: 0 0 1px rgba(57, 62, 70, 0.25);
+  background: #c3c3ce;
+  box-shadow: 0 0 1px rgba(195, 195, 206, 0.25);
+  color: #111;
+}
+
+.accordion-button {
+  background: #c3c3ce;
+  box-shadow: 0 0 1px rgba(195, 195, 206, 0.25);
   color: #111;
 }
 

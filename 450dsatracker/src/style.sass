@@ -2,6 +2,7 @@ $font-stack: Helvetica,sans-serif
 
 $primary-color-gray: #222831
 $secondary-color-gray:#393E46
+$ternary-color-gray: #c3c3ce
 $secondary-color-orange:#B55400
 $secondary-color-white:#EEEEEE
 
@@ -24,14 +25,21 @@ body
 
 .accordionHeader
   background: $primary-color-gray
-
 .accordionModule
   color: $primary-color-gray
 .module
-  @include theme($theme: $primary-color-gray)
+  @include theme($theme: $secondary-color-white)
   text-align: center
 .moduleBody
-  @include theme($theme: $secondary-color-gray)
+  @include theme($theme: $ternary-color-gray)
+
+.accordion-button
+  @include theme($theme: $ternary-color-gray)
+
+
+
+//.accordion-button.collapsed::after
+//  @include theme($theme: $secondary-color-orange)
 
 //SASS SYNTAX
 //// _base.sass
