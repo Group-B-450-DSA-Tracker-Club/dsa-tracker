@@ -20,7 +20,7 @@ export const Tracker = (props:any) => {
         return Math.trunc(num);
     }
 
-     console.log("tracker module loaded");
+    console.log("tracker module loaded");
     console.log(props.mod);
 
     return (
@@ -34,7 +34,7 @@ export const Tracker = (props:any) => {
                             <strong> {props.mod.topicName} </strong>
                         </Col>
                         <Col xs="1" className="started-column" style={{borderRadius: 10, backgroundColor: props.mod.started ? "lightgreen" : "pink"}}>
-                            {props.mod.started ? "Started" : "Not Started"}
+                            {props.mod.doneQuestions === props.mod.questions.length ? "Completed" : (props.mod.started ? "Started" : "Not Started")}
                         </Col>
                         <Col xs="2" sm="3" className="col-problems">
                             <span className="col-span-problems">{props.mod.doneQuestions + "/" + props.mod.questions.length + " Problems Completed"} </span>
@@ -42,8 +42,6 @@ export const Tracker = (props:any) => {
                         <Col xs="5" className="progress-bar-column">
                             <ProgressBar animated now={truncate(100*props.mod.doneQuestions/props.mod.questions.length)} label={`${truncate(100*props.mod.doneQuestions/props.mod.questions.length)}%`} />
                         </Col>
-
-
                     </Accordion.Header>
                     <Accordion.Body className={"moduleBody"} >
                         <QuestionDisplay topicName = {props.mod.topicName} questions = {props.mod.questions} />
