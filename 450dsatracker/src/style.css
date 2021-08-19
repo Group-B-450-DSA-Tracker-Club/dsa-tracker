@@ -64,6 +64,30 @@ body {
   align-text: center;
 }
 
+#col-problems-success {
+  background-color: #d2ccd2;
+  padding: 2px;
+  border-radius: 5rem;
+  margin-right: 20px;
+  align-text: center;
+}
+
+#col-problems-warning {
+  background-color: #d2ccd2;
+  padding: 2px;
+  border-radius: 5rem;
+  margin-right: 20px;
+  align-text: center;
+}
+
+#col-problems-danger {
+  background-color: #d2ccd2;
+  padding: 2px;
+  border-radius: 5rem;
+  margin-right: 20px;
+  align-text: center;
+}
+
 .col-span-problems {
   padding: 3.5rem;
   color: black;

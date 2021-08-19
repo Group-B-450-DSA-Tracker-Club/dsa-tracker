@@ -22,7 +22,7 @@ export const Tracker = (props:any) => {
 
     const successVariant = (num:number) =>{
         const variantNumber = truncate(num);
-        return variantNumber>=70? "success": variantNumber>=45? "warning": "danger"
+        return variantNumber>=70? "success": variantNumber>=1? "warning": variantNumber>0? "danger": "info"
     }
 
     console.log("tracker module loaded");
@@ -41,12 +41,12 @@ export const Tracker = (props:any) => {
                         <Col xs="1" className="started-column" style={{borderRadius: 10, backgroundColor: props.mod.started ? "lightgreen" : "pink"}}>
                             {props.mod.doneQuestions === props.mod.questions.length ? "Completed" : (props.mod.started ? "Started" : "Not Started")}
                         </Col>
-                        <Col xs="2" sm="3" className="col-problems">
-                            <span className="col-span-problems">{props.mod.doneQuestions + "/" + props.mod.questions.length + " Problems Completed"} </span>
-                        </Col>
+                        {/*<Col xs="2" sm="3" className={"col-problems"} id={"col-problems-"+successVariant(100*props.mod.doneQuestions/props.mod.questions.length)}>*/}
+                        {/*    <span className="col-span-problems">{props.mod.doneQuestions + "/" + props.mod.questions.length + " Problems Completed"} </span>*/}
+                        {/*</Col>*/}
                         <Col xs="5" className="progress-bar-column">
                             <ProgressBar>
-                                <ProgressBar animated variant={successVariant(100*props.mod.doneQuestions/props.mod.questions.length)} now={truncate(100*props.mod.doneQuestions/props.mod.questions.length)} label={`${truncate(100*props.mod.doneQuestions/props.mod.questions.length)}%`} />
+                                <ProgressBar animated variant={successVariant(100*props.mod.doneQuestions/props.mod.questions.length)} now={truncate(100*props.mod.doneQuestions/props.mod.questions.length)} label={props.mod.doneQuestions + " / " + props.mod.questions.length +  " Problems Completed"} />
                             </ProgressBar>
                         </Col>
                     </Accordion.Header>
