@@ -1,28 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {Accordion, Card, Col, ProgressBar} from "react-bootstrap"
 import { useHistory } from "react-router-dom";
 import { QuestionDisplay } from "./QuestionDisplay";
 
 export const Tracker = (props:any) => {
     const [clicked, setClicked] = useState(false);
+    const [progress, setProgress] = useState(0);
+    const [progressVariant, setProgressVariant] = useState("danger");
+    const [progressLabel, setProgressLabel] = useState("");
+
+    useEffect(()=> {
+        setProgress(truncate(100*props.mod.doneQuestions/props.mod.questions.length));
+        setProgressVariant(progress===100? "info": progress>0? "success": "danger");
+        setProgressLabel(props.mod.doneQuestions + " / " + props.mod.questions.length +  " Problems Completed");
+    }, [props.mod.doneQuestions, progress])
 
     const history = useHistory();
 
-    const loadCard = (e:any) => {
-        setClicked(!clicked);
-        console.log("clicked");
-        
-
-
-    }
-
-    const truncate = (num: number) =>{
+    const truncate = (num: number) => {
         return Math.trunc(num);
-    }
-
-    const successVariant = (num:number) =>{
-        const variantNumber = truncate(num);
-        return variantNumber>=70? "success": variantNumber>=1? "warning": variantNumber>0? "danger": "info"
     }
 
     console.log("tracker module loaded");
@@ -38,15 +34,15 @@ export const Tracker = (props:any) => {
                         <Col className={'moduleHeaderName'} >
                             <strong> {props.mod.topicName} </strong>
                         </Col>
-                        <Col xs="1" className="started-column" style={{borderRadius: 10, backgroundColor: props.mod.started ? "lightgreen" : "pink"}}>
-                            {props.mod.doneQuestions === props.mod.questions.length ? "Completed" : (props.mod.started ? "Started" : "Not Started")}
+                        <Col xs="1" className={props.mod.started ? (progress === 100 ? "col-completed" : "col-started") : "col-not-started"} >
+                            {props.mod.started ? (progress === 100 ? "Completed" : "Started") : "Not Started"}
                         </Col>
                         {/*<Col xs="2" sm="3" className={"col-problems"} id={"col-problems-"+successVariant(100*props.mod.doneQuestions/props.mod.questions.length)}>*/}
                         {/*    <span className="col-span-problems">{props.mod.doneQuestions + "/" + props.mod.questions.length + " Problems Completed"} </span>*/}
                         {/*</Col>*/}
                         <Col xs="5" className="progress-bar-column">
-                            <ProgressBar>
-                                <ProgressBar animated variant={successVariant(100*props.mod.doneQuestions/props.mod.questions.length)} now={truncate(100*props.mod.doneQuestions/props.mod.questions.length)} label={props.mod.doneQuestions + " / " + props.mod.questions.length +  " Problems Completed"} />
+                            <ProgressBar className={(progress === 0) ? "progressEmpty" : "progress"}>
+                                <ProgressBar animated variant={progressVariant} now={progress} label={progressLabel} />
                             </ProgressBar>
                         </Col>
                     </Accordion.Header>
