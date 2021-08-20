@@ -18,7 +18,6 @@ const MainPage = () =>{
             for(let i =0; i < nameArray.length; i++){
                 let arr = await isengard.getCollection(nameArray[i])
                 let currCollection: IQuestionData = arr[0];
-                console.log(currCollection);
                 modules[i] = currCollection;
             }
             dispatch(initializeReducer(modules));
