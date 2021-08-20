@@ -1,5 +1,4 @@
 import {Container, Navbar} from "react-bootstrap";
-import { Col } from "react-bootstrap/lib";
 
 const NavigationBar = () =>{
 
@@ -16,10 +15,8 @@ const NavigationBar = () =>{
                     <span className="title-name">
                         Coder Tracker
                     </span>
-
                 </Navbar.Brand>
             </Container>
-
         </Navbar>
     )
 };

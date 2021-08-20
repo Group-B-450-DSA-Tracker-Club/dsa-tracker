@@ -1,3 +1,4 @@
+// DEPRECATED
 // Crafts Rings that are equivalent to a slice/store for Redux
 // TODO figure typescript based usage for listeners and actions
 

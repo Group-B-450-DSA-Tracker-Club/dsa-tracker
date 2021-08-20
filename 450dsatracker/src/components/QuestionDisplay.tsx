@@ -1,6 +1,4 @@
-import {Col, Form, Row, Table} from "react-bootstrap"
-import { propTypes } from "react-bootstrap/esm/Image"
-import { useHistory } from "react-router-dom";
+import {Form, Row, Table} from "react-bootstrap"
 import {IQuestion} from "../models/question-model";
 import {useDispatch} from "react-redux";
 import {checkModel} from "../models/check-model";
@@ -28,22 +26,12 @@ export const QuestionDisplay = (props:any)=>{
                                 <td align={'left'}>
                                     <Form.Check id={""+index} name={question.Topic} type="checkbox" onChange={handleChange}/>
                                 </td>
-                                <td>
-                                    {/*<UploadCode></UploadCode>*/}
-                                </td>
                                 <td align={'right'}>
                                     <a href={question.URL} style={{color: "black"}}> {question.Problem}  </a>
                                 </td>
                             </tr>
                         </tbody>
                     </Table>
-{/*                    <Col>*/}
-{/*                        <Form.Check id={""+index} name={question.Topic} type="checkbox" onChange={handleChange}/>*/}
-{/*-*/}
-{/*                    </Col>*/}
-{/*                    <Col>*/}
-{/*                        <a href={question.URL}> {question.Problem} </a>*/}
-{/*                    </Col>*/}
                 </Row>
             </Form>)})}
         </>
