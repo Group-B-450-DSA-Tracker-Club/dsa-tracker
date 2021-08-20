@@ -10,7 +10,6 @@ const MainPage = () =>{
     const dispatch = useDispatch();
 
     useEffect(()=>{
-        console.log("Initializing Modules");
 
         const initializeModules = async () =>{
             let nameArray = await isengard.getCollectionNames();
@@ -22,7 +21,6 @@ const MainPage = () =>{
                 console.log(currCollection);
                 modules[i] = currCollection;
             }
-            console.log(modules);
             dispatch(initializeReducer(modules));
 
         }
