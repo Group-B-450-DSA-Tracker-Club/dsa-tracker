@@ -28,6 +28,9 @@ export const QuestionDisplay = (props:any)=>{
                                 <td align={'left'}>
                                     <Form.Check id={""+index} name={question.Topic} type="checkbox" onChange={handleChange}/>
                                 </td>
+                                <td>
+                                    {/*<UploadCode></UploadCode>*/}
+                                </td>
                                 <td align={'right'}>
                                     <a href={question.URL} style={{color: "black"}}> {question.Problem}  </a>
                                 </td>
