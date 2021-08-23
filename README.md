@@ -1,3 +1,10 @@
+# Contributors
+Kevin Chang (Project Coordinator)
+Oswaldo (Ozzy) Castillo
+Juan Mendoza
+Nicholas Recino
+Uros Vorkapic
+
 # dsa-tracker
 This repository contains our 450 DSA tracker for Group B.
 Project title: 450 DSA Tracker
